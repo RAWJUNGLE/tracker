@@ -9,3 +9,8 @@ git clone https://github.com/mholgatem/GPIOnext.git
 bash GPIOnext/install.sh
 chmod +x lgpt.rpi-exe 
 sudo ./lgpt.rpi-exe 
+sudo nano /home/raw/.bashrc
+echo Running at boot
+cd /home/raw/tracker/bin
+sudo ./lgpt.rpi-exe
+shutdown -h now
