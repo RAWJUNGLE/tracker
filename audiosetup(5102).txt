@@ -1,0 +1,46 @@
+sudo nano /boot/config.txt
+
+[all]
+dtoverlay=hifiberry-dac
+
+# Enable audio (loads snd_bcm2835)
+#dtparam=audio=on
+
+sudo nano /etc/modprobe.d/raspi-blacklist.conf
+
+blacklist i2c-bcm2708
+blacklist snd-soc-pcm512x
+blacklist snd-soc-wm8804
+
+ctrl+o > enter > ctrl+x
+
+sudo nano /etc/modules
+
+snd_soc_bcm2708
+bcm2708_dmaengine
+snd_soc_pcm5102a
+snd_soc_hifiberry_dac
+
+ctrl+o > enter > ctrl+x
+
+sudo nano /etc/asound.conf
+
+pcm.!default {
+type hw card 0
+}
+ctl.!default {
+type hw card 0
+}
+
+ctrl+o > enter > ctrl+x
+
+sudo reboot
+
+aplay -l
+
+**** List of PLAYBACK Hardware Devices ****
+card 0: sndrpihifiberry [snd_rpi_hifiberry_dac], device 0: HifiBerry DAC HiFi pcm5102a-hifi-0 []
+Subdevices: 1/1
+Subdevice #0: subdevice #0
+
+speaker-test -t sine -f 440 -c 2 -D hw:0,0
