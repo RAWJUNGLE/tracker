@@ -1,4 +1,11 @@
+sudo apt-get uptate
+sudo apt-get install git
+sudo apt-get inslall unzip
+sudo apt-get install libsdl1.2-dev
+sudo apt-get install python3-pip
+sudo apt install usbmount
+cd ~
+git clone https://github.com/mholgatem/GPIOnext.git
+bash GPIOnext/install.sh
 chmod +x lgpt.rpi-exe 
 sudo ./lgpt.rpi-exe 
--FULLSCREEN=YES 
-sudo apt-get install libsdl1.2-dev
